@@ -37,7 +37,7 @@ namespace netlectureAPI.Controllers
         }
 
         [HttpGet("{id:int}", Name = "GetBookById")]
-        public async Task<ActionResult<BookDTO>> GetBookById(int id)
+        public async Task<ActionResult<BookDTO>> GetBookById(Guid id)
         {
             return await GetByID<Book, BookDTO>(id);
         }
@@ -49,14 +49,14 @@ namespace netlectureAPI.Controllers
         }
 
         [HttpPatch("{id:int}")]
-        public async Task<ActionResult> Patch(int id, [FromBody] JsonPatchDocument<BookPatchDTO> patchDocument)
+        public async Task<ActionResult> Patch(Guid id, [FromBody] JsonPatchDocument<BookPatchDTO> patchDocument)
         {
 
             return await Patch<Book, BookPatchDTO>(id, patchDocument);
         }
 
         [HttpDelete("{id:int}")]
-        public async Task<ActionResult> DeleteBook(int id)
+        public async Task<ActionResult> DeleteBook(Guid id)
         {
             return await Delete<Book>(id);
         }

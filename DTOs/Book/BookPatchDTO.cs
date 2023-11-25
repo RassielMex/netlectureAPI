@@ -16,7 +16,7 @@ namespace netlectureAPI.DTOs.Book
 
         public string Grade { get; set; }
         [StringLength(300, ErrorMessage = "La {0} no debe exeder {1}caracteres")]
-        public string Review { get; set; }
+        public string Summary { get; set; }
 
         [Range(1, 5, ErrorMessage = "El {0} debe estar entre {1} y {2}")]
         public uint Qualification { get; set; }

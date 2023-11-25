@@ -30,7 +30,7 @@ namespace netlectureAPI.Controllers
 
 
         [HttpGet("{id:int}", Name = "GetAuthorsById")]
-        public async Task<ActionResult<AuthorDTO>> GetAuthorById(int id)
+        public async Task<ActionResult<AuthorDTO>> GetAuthorById(Guid id)
         {
             return await GetByID<Author, AuthorDTO>(id);
         }
@@ -42,7 +42,7 @@ namespace netlectureAPI.Controllers
         }
 
         [HttpDelete("{id:int}")]
-        public async Task<ActionResult> DeleteAuthor(int id)
+        public async Task<ActionResult> DeleteAuthor(Guid id)
         {
             return await Delete<Author>(id);
         }

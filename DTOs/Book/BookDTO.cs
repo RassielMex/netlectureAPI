@@ -13,6 +13,7 @@ namespace netlectureAPI.DTOs.Book
         public Guid Id { get; set; }
         public string Title { get; set; }
         public string Grade { get; set; }
+        public uint Qualification { get; set; }
         public AuthorDTO Author { get; set; }
         public GenreDTO Genre { get; set; }
     }

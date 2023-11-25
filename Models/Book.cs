@@ -20,13 +20,14 @@ namespace netlectureAPI.Models
         [GradeValue]
         public string Grade { get; set; }
         [StringLength(300, ErrorMessage = "El {0} no debe exeder {1}caracteres")]
-        public string Review { get; set; }
+        public string Summary { get; set; }
         public string ImageURL { get; set; }
         [Range(1, 5, ErrorMessage = "El {0} debe estar entre {1} y {2}")]
+        [DefaultValue(1)]
         public uint Qualification { get; set; }
-        public int AuthorId { get; set; }
+        public Guid AuthorId { get; set; }
         public Author Author { get; set; }
-        public int GenreId { get; set; }
+        public Guid GenreId { get; set; }
         public Genre Genre { get; set; }
     }
 }

@@ -16,7 +16,7 @@ namespace netlectureAPI.DTOs.Book
         [GradeValue]
         public string Grade { get; set; }
         [StringLength(300, ErrorMessage = "La {0} no debe exeder {1}caracteres")]
-        public string Review { get; set; }
+        public string Summary { get; set; }
         [FileSize(MaxSizeMB: 2)]
         [FileType(validFileType: ValidFileType.IMAGE)]
         public IFormFile Image { get; set; }

@@ -25,8 +25,8 @@ namespace netlectureAPI.Controllers
         }
 
 
-        [HttpGet("{id:int}", Name = "GetGenreById")]
-        public async Task<ActionResult<GenreDTO>> GetGenreById(int id)
+        [HttpGet("{id}", Name = "GetGenreById")]
+        public async Task<ActionResult<GenreDTO>> GetGenreById(Guid id)
         {
             return await GetByID<Genre, GenreDTO>(id);
         }
@@ -38,7 +38,7 @@ namespace netlectureAPI.Controllers
         }
 
         [HttpDelete("{id:int}")]
-        public async Task<ActionResult> DeleteGenre(int id)
+        public async Task<ActionResult> DeleteGenre(Guid id)
         {
             return await Delete<Genre>(id);
         }

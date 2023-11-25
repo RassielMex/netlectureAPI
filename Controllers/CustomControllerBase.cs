@@ -38,7 +38,7 @@ namespace PeliculasAPI.Controllers
         //     return mapper.Map<List<TDTO>>(entidades);
         // }
 
-        protected async Task<ActionResult<TDTO>> GetByID<TEntity, TDTO>(int id) where TEntity : class, IModelBase
+        protected async Task<ActionResult<TDTO>> GetByID<TEntity, TDTO>(Guid id) where TEntity : class, IModelBase
         {
             var entity = await context.Set<TEntity>().AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
 
@@ -60,7 +60,7 @@ namespace PeliculasAPI.Controllers
             return new CreatedAtRouteResult(routeName, new { id = entity.Id }, dtoRead);
         }
 
-        protected async Task<ActionResult> Put<TCreation, TEntity>(int id, TCreation creationDTO) where TEntity : class, IModelBase
+        protected async Task<ActionResult> Put<TCreation, TEntity>(Guid id, TCreation creationDTO) where TEntity : class, IModelBase
         {
             var entidad = mapper.Map<TEntity>(creationDTO);
             entidad.Id = id;
@@ -69,7 +69,7 @@ namespace PeliculasAPI.Controllers
             return NoContent();
         }
 
-        protected async Task<ActionResult> Patch<TEntity, TDTO>(int id, JsonPatchDocument<TDTO> patchDocument)
+        protected async Task<ActionResult> Patch<TEntity, TDTO>(Guid id, JsonPatchDocument<TDTO> patchDocument)
         where TEntity : class, IModelBase
         where TDTO : class
         {
@@ -98,7 +98,7 @@ namespace PeliculasAPI.Controllers
 
             return NoContent();
         }
-        protected async Task<ActionResult> Delete<TEntity>(int id) where TEntity : class, IModelBase, new()
+        protected async Task<ActionResult> Delete<TEntity>(Guid id) where TEntity : class, IModelBase, new()
         {
             var exists = await context.Set<TEntity>().AnyAsync(x => x.Id == id);
             if (!exists)
