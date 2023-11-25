@@ -7,6 +7,6 @@ namespace netlectureAPI.Interfaces
 {
     public interface IModelBase
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
     }
 }

@@ -1,9 +1,14 @@
 namespace netlectureAPI.Models
 {
-    public enum Grade
+    public static class Grade
     {
-        FIRST = 1,
-        SECOND = 2,
-        THIRD = 3
+        public static readonly string First = "Primero";
+        public static readonly string Second = "Segundo";
+        public static readonly string Third = "Tercero";
+
+        public static bool IsGrade(string value)
+        {
+            return value == First || value == Second || value == Third;
+        }
     }
 }

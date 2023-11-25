@@ -11,7 +11,7 @@ namespace netlectureAPI.Models
 {
     public class Author : IModelBase
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         [Required]
         [StringLength(50)]
         public string Name { get; set; }

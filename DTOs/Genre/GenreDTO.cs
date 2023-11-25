@@ -8,7 +8,7 @@ namespace netlectureAPI.DTOs.Genre
 {
     public class GenreDTO
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         [Required]
         [StringLength(40)]
         public string Name { get; set; }

@@ -9,7 +9,7 @@ namespace netlectureAPI.Models
 {
     public class Genre : IModelBase
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         [Required]
         [StringLength(40)]
         public string Name { get; set; }

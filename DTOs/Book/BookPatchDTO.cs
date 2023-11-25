@@ -13,8 +13,8 @@ namespace netlectureAPI.DTOs.Book
         [Required(ErrorMessage = "El {0} es Requerido")]
         [StringLength(50, ErrorMessage = "El {0} no debe exeder {0}caracteres")]
         public string Title { get; set; }
-        [Range(1, 3)]
-        public Grade Grade { get; set; }
+
+        public string Grade { get; set; }
         [StringLength(300, ErrorMessage = "La {0} no debe exeder {1}caracteres")]
         public string Review { get; set; }
 

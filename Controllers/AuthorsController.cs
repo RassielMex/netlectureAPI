@@ -22,7 +22,7 @@ namespace netlectureAPI.Controllers
         }
 
         [HttpGet]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<ActionResult<List<AuthorDTO>>> GetAllAuthors()
         {
             return await GetAll<Author, AuthorDTO>();
