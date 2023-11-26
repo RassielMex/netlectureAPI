@@ -25,6 +25,9 @@ namespace netlectureAPI.Helpers
             .ForMember(book => book.ImageURL, options => options.Ignore())
             .ReverseMap();
 
+            CreateMap<Book, BookDetailsDTO>()
+            .ReverseMap();
+
             //Author
             CreateMap<Author, AuthorDTO>()
             .ReverseMap();

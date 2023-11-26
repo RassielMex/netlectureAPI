@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.ObjectPool;
 using netlectureAPI.DTOs.Book;
 using netlectureAPI.Models;
 using PeliculasAPI.Controllers;
@@ -30,16 +32,39 @@ namespace netlectureAPI.Controllers
         {
             var entities = await context.Books
             .Include(book => book.Author)
-            .Include(book => book.Genre)
             .ToListAsync();
             var dtos = mapper.Map<List<BookDTO>>(entities);
             return dtos;
         }
 
-        [HttpGet("{id:int}", Name = "GetBookById")]
-        public async Task<ActionResult<BookDTO>> GetBookById(Guid id)
+        [HttpGet("filter")]
+        public async Task<ActionResult<List<BookDTO>>> GetBooksWithFilter([FromQuery] BookFilter filter)
         {
-            return await GetByID<Book, BookDTO>(id);
+            var books = new List<Book>();
+
+            foreach (var grade in filter.Grades)
+            {
+                var entities = await context.Books
+                                            .Where(book => book.Grade.Contains(grade))
+                                            .Include(books => books.Author)
+                                            .AsNoTracking()
+                                            .ToListAsync();
+                books.AddRange(entities);
+
+            }
+            var dtos = mapper.Map<List<BookDTO>>(books);
+            return dtos;
+        }
+
+        [HttpGet("{id}", Name = "GetBookById")]
+        public async Task<ActionResult<BookDetailsDTO>> GetBookById(Guid id)
+        {
+            var entity = await context.Books
+                                    .Include(book => book.Author)
+                                    .Include(book => book.Genre)
+                                    .FirstOrDefaultAsync(book => book.Id == id);
+            var dto = mapper.Map<BookDetailsDTO>(entity);
+            return dto;
         }
 
         [HttpPost]

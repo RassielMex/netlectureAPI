@@ -13,6 +13,7 @@ namespace netlectureAPI.DTOs.Book
         [Required(ErrorMessage = "El {0} es Requerido")]
         [StringLength(50, ErrorMessage = "El {0} no debe exeder {0}caracteres")]
         public string Title { get; set; }
+        [Required]
         [GradeValue]
         public string Grade { get; set; }
         [StringLength(300, ErrorMessage = "La {0} no debe exeder {1}caracteres")]
@@ -22,8 +23,9 @@ namespace netlectureAPI.DTOs.Book
         public IFormFile Image { get; set; }
         [Range(1, 5, ErrorMessage = "El {0} debe estar entre {1} y {2}")]
         public uint Qualification { get; set; }
-
+        [Required]
         public int AuthorId { get; set; }
+        [Required]
         public int GenreId { get; set; }
     }
 }

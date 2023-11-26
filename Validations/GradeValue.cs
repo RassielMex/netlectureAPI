@@ -9,7 +9,12 @@ namespace netlectureAPI.Validations
 {
     public class GradeValue : ValidationAttribute
     {
-        //private readonly string grade;
+        private readonly bool asArray;
+        public GradeValue() { }
+        public GradeValue(bool asArray)
+        {
+            this.asArray = asArray;
+        }
 
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
@@ -18,11 +23,28 @@ namespace netlectureAPI.Validations
                 return ValidationResult.Success;
             }
 
+            if (asArray)
+            {
+                try
+                {
+                    var values = value as string[];
+                    if (values.All(Grade.IsGrade))
+                    {
+                        return ValidationResult.Success;
+                    }
+                }
+                catch (Exception)
+                {
+
+                    return new ValidationResult("Valor de grado invalido");
+                }
+            }
+
+
             if (Grade.IsGrade(value as string))
             {
                 return ValidationResult.Success;
             }
-
             return new ValidationResult("Valor de grado invalido");
         }
     }
