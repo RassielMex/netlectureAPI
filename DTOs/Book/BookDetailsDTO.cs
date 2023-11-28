@@ -14,7 +14,7 @@ namespace netlectureAPI.DTOs.Book
         public string Grade { get; set; }
         public string Summary { get; set; }
         public string ImageURL { get; set; }
-        public uint Qualification { get; set; }
+        public uint Rate { get; set; }
         public AuthorDTO Author { get; set; }
         public GenreDTO Genre { get; set; }
     }

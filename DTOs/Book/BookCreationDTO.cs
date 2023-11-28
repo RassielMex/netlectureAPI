@@ -22,7 +22,7 @@ namespace netlectureAPI.DTOs.Book
         [FileType(validFileType: ValidFileType.IMAGE)]
         public IFormFile Image { get; set; }
         [Range(1, 5, ErrorMessage = "El {0} debe estar entre {1} y {2}")]
-        public uint Qualification { get; set; }
+        public uint Rate { get; set; }
         [Required]
         public int AuthorId { get; set; }
         [Required]

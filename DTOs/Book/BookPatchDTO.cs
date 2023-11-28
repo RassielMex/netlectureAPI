@@ -19,7 +19,7 @@ namespace netlectureAPI.DTOs.Book
         public string Summary { get; set; }
 
         [Range(1, 5, ErrorMessage = "El {0} debe estar entre {1} y {2}")]
-        public uint Qualification { get; set; }
+        public uint Rate { get; set; }
 
         public int AuthorId { get; set; }
         public int GenreId { get; set; }
