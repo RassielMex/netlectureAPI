@@ -2,7 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using netlectureAPI.Models;
+using netlectureAPI.DTOs.Author;
+using netlectureAPI.DTOs.Genre;
 
 namespace netlectureAPI.DTOs.Book
 {
@@ -14,7 +15,7 @@ namespace netlectureAPI.DTOs.Book
         public string Summary { get; set; }
         public string ImageURL { get; set; }
         public uint Qualification { get; set; }
-        public Models.Author Author { get; set; }
-        public Models.Genre Genre { get; set; }
+        public AuthorDTO Author { get; set; }
+        public GenreDTO Genre { get; set; }
     }
 }
