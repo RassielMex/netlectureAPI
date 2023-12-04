@@ -52,7 +52,7 @@ namespace netlectureAPI
                 AuthorId = jkRowling.Id,
                 GenreId = fantasía.Id,
                 Summary = "",
-                Qualification = 5,
+                Rate = 5,
                 Grade = Grade.First
             };
             var quijote = new Book
@@ -62,7 +62,7 @@ namespace netlectureAPI
                 AuthorId = miguelCervantes.Id,
                 GenreId = novela.Id,
                 Summary = "",
-                Qualification = 3,
+                Rate = 3,
                 Grade = Grade.First
             };
             var crepusculo = new Book
@@ -72,7 +72,7 @@ namespace netlectureAPI
                 AuthorId = sthephenieMeyer.Id,
                 GenreId = novela.Id,
                 Summary = "",
-                Qualification = 4,
+                Rate = 4,
                 Grade = Grade.Second
             };
             var juegos = new Book
@@ -82,7 +82,7 @@ namespace netlectureAPI
                 AuthorId = suzanneCollins.Id,
                 GenreId = aventura.Id,
                 Summary = "",
-                Qualification = 5,
+                Rate = 5,
                 Grade = Grade.Third
             };
 

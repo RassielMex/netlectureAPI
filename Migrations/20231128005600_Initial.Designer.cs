@@ -12,7 +12,7 @@ using netlectureAPI;
 namespace netlectureAPI.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20231125013627_Initial")]
+    [Migration("20231128005600_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -237,6 +237,28 @@ namespace netlectureAPI.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Authors");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("8f19fd60-c807-4ccb-99f2-1bee7ceb5feb"),
+                            Name = "J.K Rowling"
+                        },
+                        new
+                        {
+                            Id = new Guid("52ae842e-521e-4e67-9928-3951f7968c73"),
+                            Name = "Miguel de Cervantes"
+                        },
+                        new
+                        {
+                            Id = new Guid("f8f83a30-9435-4e49-935a-57fe8110f36a"),
+                            Name = "Stephenie Meyer"
+                        },
+                        new
+                        {
+                            Id = new Guid("8de137bb-94c5-4d20-9624-d682b7ab8fc2"),
+                            Name = "Suzanne Collins"
+                        });
                 });
 
             modelBuilder.Entity("netlectureAPI.Models.Book", b =>
@@ -258,7 +280,7 @@ namespace netlectureAPI.Migrations
                     b.Property<string>("ImageURL")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<long>("Qualification")
+                    b.Property<long>("Rate")
                         .HasColumnType("bigint");
 
                     b.Property<string>("Summary")
@@ -277,6 +299,48 @@ namespace netlectureAPI.Migrations
                     b.HasIndex("GenreId");
 
                     b.ToTable("Books");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("6efade16-000d-4999-b1c0-d470e6129a9b"),
+                            AuthorId = new Guid("8f19fd60-c807-4ccb-99f2-1bee7ceb5feb"),
+                            GenreId = new Guid("4de4daf2-0138-4926-a21a-50f7f74756cd"),
+                            Grade = "Primero",
+                            Rate = 5L,
+                            Summary = "",
+                            Title = "Harry Potter y La Piedra Filosofal"
+                        },
+                        new
+                        {
+                            Id = new Guid("ba426403-4353-4fd7-b488-0fa0a7d18300"),
+                            AuthorId = new Guid("52ae842e-521e-4e67-9928-3951f7968c73"),
+                            GenreId = new Guid("9c597816-2cd3-454e-a42c-f79a001b5fcb"),
+                            Grade = "Primero",
+                            Rate = 3L,
+                            Summary = "",
+                            Title = "Don Quijote de la Mancha"
+                        },
+                        new
+                        {
+                            Id = new Guid("bb2c7967-82e0-40f5-b84b-62cb61af8b64"),
+                            AuthorId = new Guid("f8f83a30-9435-4e49-935a-57fe8110f36a"),
+                            GenreId = new Guid("9c597816-2cd3-454e-a42c-f79a001b5fcb"),
+                            Grade = "Segundo",
+                            Rate = 4L,
+                            Summary = "",
+                            Title = "Crepusculo"
+                        },
+                        new
+                        {
+                            Id = new Guid("08c75876-3086-4fb6-a88a-25271722cce4"),
+                            AuthorId = new Guid("8de137bb-94c5-4d20-9624-d682b7ab8fc2"),
+                            GenreId = new Guid("04e137f5-0e7f-481c-b08d-bebb960cb836"),
+                            Grade = "Tercero",
+                            Rate = 5L,
+                            Summary = "",
+                            Title = "Los Juegos del Hambre"
+                        });
                 });
 
             modelBuilder.Entity("netlectureAPI.Models.Genre", b =>
@@ -293,6 +357,28 @@ namespace netlectureAPI.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Genres");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("04e137f5-0e7f-481c-b08d-bebb960cb836"),
+                            Name = "Aventura"
+                        },
+                        new
+                        {
+                            Id = new Guid("9c597816-2cd3-454e-a42c-f79a001b5fcb"),
+                            Name = "Novela"
+                        },
+                        new
+                        {
+                            Id = new Guid("6df0428d-2089-4f2b-bcc4-eb7f1d01142b"),
+                            Name = "Terror"
+                        },
+                        new
+                        {
+                            Id = new Guid("4de4daf2-0138-4926-a21a-50f7f74756cd"),
+                            Name = "Fantasía"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

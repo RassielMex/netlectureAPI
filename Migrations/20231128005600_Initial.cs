@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace netlectureAPI.Migrations
 {
     /// <inheritdoc />
@@ -189,7 +191,7 @@ namespace netlectureAPI.Migrations
                     Grade = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Summary = table.Column<string>(type: "nvarchar(300)", maxLength: 300, nullable: true),
                     ImageURL = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Qualification = table.Column<long>(type: "bigint", nullable: false),
+                    Rate = table.Column<long>(type: "bigint", nullable: false),
                     AuthorId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     GenreId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
@@ -208,6 +210,39 @@ namespace netlectureAPI.Migrations
                         principalTable: "Genres",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Authors",
+                columns: new[] { "Id", "Name" },
+                values: new object[,]
+                {
+                    { new Guid("52ae842e-521e-4e67-9928-3951f7968c73"), "Miguel de Cervantes" },
+                    { new Guid("8de137bb-94c5-4d20-9624-d682b7ab8fc2"), "Suzanne Collins" },
+                    { new Guid("8f19fd60-c807-4ccb-99f2-1bee7ceb5feb"), "J.K Rowling" },
+                    { new Guid("f8f83a30-9435-4e49-935a-57fe8110f36a"), "Stephenie Meyer" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Genres",
+                columns: new[] { "Id", "Name" },
+                values: new object[,]
+                {
+                    { new Guid("04e137f5-0e7f-481c-b08d-bebb960cb836"), "Aventura" },
+                    { new Guid("4de4daf2-0138-4926-a21a-50f7f74756cd"), "Fantasía" },
+                    { new Guid("6df0428d-2089-4f2b-bcc4-eb7f1d01142b"), "Terror" },
+                    { new Guid("9c597816-2cd3-454e-a42c-f79a001b5fcb"), "Novela" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Books",
+                columns: new[] { "Id", "AuthorId", "GenreId", "Grade", "ImageURL", "Rate", "Summary", "Title" },
+                values: new object[,]
+                {
+                    { new Guid("08c75876-3086-4fb6-a88a-25271722cce4"), new Guid("8de137bb-94c5-4d20-9624-d682b7ab8fc2"), new Guid("04e137f5-0e7f-481c-b08d-bebb960cb836"), "Tercero", null, 5L, "", "Los Juegos del Hambre" },
+                    { new Guid("6efade16-000d-4999-b1c0-d470e6129a9b"), new Guid("8f19fd60-c807-4ccb-99f2-1bee7ceb5feb"), new Guid("4de4daf2-0138-4926-a21a-50f7f74756cd"), "Primero", null, 5L, "", "Harry Potter y La Piedra Filosofal" },
+                    { new Guid("ba426403-4353-4fd7-b488-0fa0a7d18300"), new Guid("52ae842e-521e-4e67-9928-3951f7968c73"), new Guid("9c597816-2cd3-454e-a42c-f79a001b5fcb"), "Primero", null, 3L, "", "Don Quijote de la Mancha" },
+                    { new Guid("bb2c7967-82e0-40f5-b84b-62cb61af8b64"), new Guid("f8f83a30-9435-4e49-935a-57fe8110f36a"), new Guid("9c597816-2cd3-454e-a42c-f79a001b5fcb"), "Segundo", null, 4L, "", "Crepusculo" }
                 });
 
             migrationBuilder.CreateIndex(

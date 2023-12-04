@@ -238,22 +238,22 @@ namespace netlectureAPI.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("37c40cbd-0930-4880-a877-d9d3b69b3d5d"),
+                            Id = new Guid("8f19fd60-c807-4ccb-99f2-1bee7ceb5feb"),
                             Name = "J.K Rowling"
                         },
                         new
                         {
-                            Id = new Guid("265f013c-5290-443d-b7a5-9ed7e1df53d3"),
+                            Id = new Guid("52ae842e-521e-4e67-9928-3951f7968c73"),
                             Name = "Miguel de Cervantes"
                         },
                         new
                         {
-                            Id = new Guid("8c6c2911-99fc-4421-8ce8-9c048974c0c1"),
+                            Id = new Guid("f8f83a30-9435-4e49-935a-57fe8110f36a"),
                             Name = "Stephenie Meyer"
                         },
                         new
                         {
-                            Id = new Guid("cb292479-4e3b-4588-815e-85fb88ded193"),
+                            Id = new Guid("8de137bb-94c5-4d20-9624-d682b7ab8fc2"),
                             Name = "Suzanne Collins"
                         });
                 });
@@ -277,7 +277,7 @@ namespace netlectureAPI.Migrations
                     b.Property<string>("ImageURL")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<long>("Qualification")
+                    b.Property<long>("Rate")
                         .HasColumnType("bigint");
 
                     b.Property<string>("Summary")
@@ -300,41 +300,41 @@ namespace netlectureAPI.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("d4edb466-9a02-42e0-a7c0-69d5b09d6d8c"),
-                            AuthorId = new Guid("37c40cbd-0930-4880-a877-d9d3b69b3d5d"),
-                            GenreId = new Guid("a4ac9933-799b-4825-96ae-0d92770b8166"),
+                            Id = new Guid("6efade16-000d-4999-b1c0-d470e6129a9b"),
+                            AuthorId = new Guid("8f19fd60-c807-4ccb-99f2-1bee7ceb5feb"),
+                            GenreId = new Guid("4de4daf2-0138-4926-a21a-50f7f74756cd"),
                             Grade = "Primero",
-                            Qualification = 5L,
+                            Rate = 5L,
                             Summary = "",
                             Title = "Harry Potter y La Piedra Filosofal"
                         },
                         new
                         {
-                            Id = new Guid("86a7305b-b2b6-4e76-85b5-bbbf32317f6f"),
-                            AuthorId = new Guid("265f013c-5290-443d-b7a5-9ed7e1df53d3"),
-                            GenreId = new Guid("7b0b86f6-16b7-4402-b0e7-343707c32e0f"),
+                            Id = new Guid("ba426403-4353-4fd7-b488-0fa0a7d18300"),
+                            AuthorId = new Guid("52ae842e-521e-4e67-9928-3951f7968c73"),
+                            GenreId = new Guid("9c597816-2cd3-454e-a42c-f79a001b5fcb"),
                             Grade = "Primero",
-                            Qualification = 3L,
+                            Rate = 3L,
                             Summary = "",
                             Title = "Don Quijote de la Mancha"
                         },
                         new
                         {
-                            Id = new Guid("4c926d7a-0bad-4287-9a0b-c7a7dbb9fc15"),
-                            AuthorId = new Guid("8c6c2911-99fc-4421-8ce8-9c048974c0c1"),
-                            GenreId = new Guid("7b0b86f6-16b7-4402-b0e7-343707c32e0f"),
+                            Id = new Guid("bb2c7967-82e0-40f5-b84b-62cb61af8b64"),
+                            AuthorId = new Guid("f8f83a30-9435-4e49-935a-57fe8110f36a"),
+                            GenreId = new Guid("9c597816-2cd3-454e-a42c-f79a001b5fcb"),
                             Grade = "Segundo",
-                            Qualification = 4L,
+                            Rate = 4L,
                             Summary = "",
                             Title = "Crepusculo"
                         },
                         new
                         {
-                            Id = new Guid("722adda9-a965-4727-9fcc-5d1a39437934"),
-                            AuthorId = new Guid("cb292479-4e3b-4588-815e-85fb88ded193"),
-                            GenreId = new Guid("d43252a3-7314-4b35-aa05-d626ae7a7724"),
+                            Id = new Guid("08c75876-3086-4fb6-a88a-25271722cce4"),
+                            AuthorId = new Guid("8de137bb-94c5-4d20-9624-d682b7ab8fc2"),
+                            GenreId = new Guid("04e137f5-0e7f-481c-b08d-bebb960cb836"),
                             Grade = "Tercero",
-                            Qualification = 5L,
+                            Rate = 5L,
                             Summary = "",
                             Title = "Los Juegos del Hambre"
                         });
@@ -358,22 +358,22 @@ namespace netlectureAPI.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("d43252a3-7314-4b35-aa05-d626ae7a7724"),
+                            Id = new Guid("04e137f5-0e7f-481c-b08d-bebb960cb836"),
                             Name = "Aventura"
                         },
                         new
                         {
-                            Id = new Guid("7b0b86f6-16b7-4402-b0e7-343707c32e0f"),
+                            Id = new Guid("9c597816-2cd3-454e-a42c-f79a001b5fcb"),
                             Name = "Novela"
                         },
                         new
                         {
-                            Id = new Guid("b46833ff-bf55-4ef1-80de-cdc2f9885d5b"),
+                            Id = new Guid("6df0428d-2089-4f2b-bcc4-eb7f1d01142b"),
                             Name = "Terror"
                         },
                         new
                         {
-                            Id = new Guid("a4ac9933-799b-4825-96ae-0d92770b8166"),
+                            Id = new Guid("4de4daf2-0138-4926-a21a-50f7f74756cd"),
                             Name = "Fantasía"
                         });
                 });
